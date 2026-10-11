@@ -2,6 +2,7 @@
   "name": "backend-2",
   "version": "1.0.0",
   "description": "Professional backend projet ",
+  "type": "commonjs",
   "keywords": [
     "backend",
     "javascript",
@@ -10,9 +11,12 @@
   ],
   "license": "ISC",
   "author": "Amey",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "dev": " nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.10"
   }
 }
