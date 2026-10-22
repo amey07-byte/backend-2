@@ -1,27 +1,23 @@
 import dns from "node:dns";
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 import "dotenv/config";
-// import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
+import { app } from "./app.js";
 import connectDB from "./db/index.js";
-import express from "express"
 
+const PORT = process.env.PORT || 3000;
 
-// method 2
 connectDB()
-.then(()=>{
-
-    app.listen(process.env.PORT || 3000,()=>{
-        console.log(`server is running at port${process.env.PORT}`);
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running at http://localhost:${PORT}`);
+        });
     })
-
-
-})
-.catch((error)=>{
-    console.log("MONGODB CONNECTION FAIL :",error)
-})
-
+    .catch((error) => {
+        console.error("MongoDB connection failed:", error);
+        process.exit(1);
+    });
 
 // method 1
 
